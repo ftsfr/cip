@@ -1,0 +1,90 @@
+[config]
+type = "pipeline"
+chartbook_format_version = "0.0.2"
+
+[site]
+title = "CIP Deviations"
+author = "Jeremy Bejarano"
+copyright = "2025"
+logo_path = ""
+favicon_path = ""
+
+[pipeline]
+id = "cip"
+pipeline_name = "Covered Interest Parity Deviations"
+pipeline_description = "CIP deviations measuring arbitrage opportunities in currency markets"
+lead_pipeline_developer = "Jeremy Bejarano"
+contributors = ["Jeremy Bejarano", "Kunj Mehta"]
+runs_on = "Windows/Linux/MacOS (requires Bloomberg)"
+git_repo_URL = "https://github.com/ftsfr/cip"
+README_file_path = "./README.md"
+
+[notebooks]
+
+[notebooks.summary_cip]
+notebook_name = "summary_cip"
+notebook_description = "Summary statistics and visualization of CIP deviations"
+notebook_path = "_output/_notebook_build/summary_cip.ipynb"
+is_publishable = true
+
+[charts]
+
+[dataframes]
+
+[dataframes.ftsfr_cip_spreads]
+dataframe_name = "ftsfr_cip_spreads"
+short_description_df = "Daily CIP deviations for 8 currencies vs USD"
+data_sources = ["Bloomberg FX"]
+data_providers = ["Bloomberg"]
+need_to_contact_provider = ["no"]
+data_on_pre_approved_list = ["No"]
+links_to_data_providers = ["https://bloomberg.com"]
+topic_tags = ["CIP", "foreign exchange", "arbitrage", "currency"]
+type_of_data_access = ["Bloomberg Terminal"]
+data_license = "Bloomberg"
+license_expiration_date = ""
+provider_contact_info = ""
+restriction_on_use = "No"
+how_is_pulled = "Pulled from Bloomberg via xbbg"
+path_to_parquet_data = "./_data/ftsfr_cip_spreads.parquet"
+path_to_excel_data = ""
+date_col = "ds"
+dataframe_docs_str = """
+## CIP Deviations
+
+Covered Interest Parity deviations in basis points.
+
+### Columns
+
+| Column | Description |
+|--------|-------------|
+| unique_id | Currency code (e.g., EUR, GBP, JPY) |
+| ds | Date |
+| y | CIP spread in basis points |
+
+### Methodology
+
+$$
+CIP = 10000 × [i_d - (360/90)(ln F - ln S) - i_f]
+$$
+
+Where:
+- i_d: Domestic (foreign currency) interest rate
+- i_f: Foreign (USD) interest rate
+- F: 3-month forward rate
+- S: Spot rate
+
+### Interpretation
+
+- CIP = 0: No arbitrage (parity holds)
+- CIP > 0: Borrowing USD is cheaper
+- CIP < 0: Borrowing foreign currency is cheaper
+
+### Currencies
+
+AUD, CAD, CHF, EUR, GBP, JPY, NZD, SEK
+
+### Data Source
+
+Bloomberg FX spot rates, forward points, and OIS interest rates
+"""
