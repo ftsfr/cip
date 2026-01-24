@@ -1,0 +1,25 @@
+# Paper References for CIP Module
+
+[Du2018]
+title = "Deviations from Covered Interest Rate Parity"
+authors = "Wenxin Du, Alexander Tepper, and Adrien Verdelhan"
+year = 2018
+journal = "Journal of Finance"
+description = "The paper investigates deviations from the covered interest rate parity (CIP) condition, revealing significant and persistent arbitrage opportunities in major currency markets post-global financial crisis."
+empirical_facts = [
+    "CIP deviations have been persistent among G10 currencies since the 2008 financial crisis, leading to significant arbitrage opportunities.",
+    "The average annualized absolute value of the cross-currency basis is 24 basis points at the three-month horizon and 27 basis points at the five-year horizon from 2010 to 2016.",
+    "CIP deviations are not explained by credit risk differences, as evidenced by the analysis of fully collateralized repo contracts and KfW bonds.",
+    "The cross-currency basis is positively correlated with nominal interest rates and other liquidity spreads.",
+]
+lessons_learned = [
+    "Post-crisis regulatory reforms have a causal impact on CIP deviations and arbitrage opportunities.",
+    "Constraints on financial intermediaries and international funding imbalances contribute to persistent CIP deviations.",
+    "CIP deviations increase towards quarter-ends due to tighter balance sheet constraints faced by banks.",
+    "The cross-currency basis is influenced by the shadow costs of banks' balance sheets.",
+]
+data_sources = [
+    "Bank of International Settlements reports on FX forward and swap markets",
+    "Libor interest rates and credit default spreads of banks",
+    "General collateral repurchase agreements (repo) and KfW bonds",
+]

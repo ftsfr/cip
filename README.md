@@ -49,3 +49,18 @@ AUD, CAD, CHF, EUR, GBP, JPY, NZD, SEK
 ## Credits
 
 Code adapted with permission from https://github.com/Kunj121/CIP
+
+## Academic References
+
+### Primary Paper
+
+- **Du, Tepper, and Verdelhan (2018)** - "Deviations from Covered Interest Rate Parity"
+  - Journal of Finance
+  - Documents persistent CIP violations since the financial crisis
+
+### Key Findings
+
+- CIP deviations have been persistent among G10 currencies since 2008
+- Average absolute cross-currency basis is 24-27 bps
+- Deviations increase towards quarter-ends due to balance sheet constraints
+- Post-crisis regulatory reforms have causal impact on CIP deviations

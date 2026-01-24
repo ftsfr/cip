@@ -24,7 +24,7 @@ README_file_path = "./README.md"
 [notebooks.summary_cip]
 notebook_name = "summary_cip"
 notebook_description = "Summary statistics and visualization of CIP deviations"
-notebook_path = "_output/_notebook_build/summary_cip.ipynb"
+notebook_path = "_output/summary_cip.ipynb"
 is_publishable = true
 
 [charts]
