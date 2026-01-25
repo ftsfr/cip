@@ -91,7 +91,7 @@ ax.axhline(y=0, color='black', linestyle='--', alpha=0.5)
 ax.set_xlabel('Date')
 ax.set_ylabel('CIP Spread (bps)')
 ax.set_title('Covered Interest Parity Deviations')
-ax.legend(loc='upper center', bbox_to_anchor=(0.5, -0.1), ncol=4)
+ax.legend()
 ax.grid(True, alpha=0.3)
 ax.set_ylim([-50, 210])
 

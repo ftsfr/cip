@@ -162,6 +162,22 @@ def task_run_notebooks():
     }
 
 
+def task_generate_charts():
+    """Generate interactive HTML charts."""
+    return {
+        "actions": ["python src/generate_chart.py"],
+        "file_dep": [
+            "src/generate_chart.py",
+            DATA_DIR / "ftsfr_cip_spreads.parquet",
+        ],
+        "targets": [
+            OUTPUT_DIR / "cip_deviations.html",
+        ],
+        "verbosity": 2,
+        "task_dep": ["format"],
+    }
+
+
 def task_generate_pipeline_site():
     """Generate chartbook documentation site."""
     return {
@@ -169,8 +185,9 @@ def task_generate_pipeline_site():
         "file_dep": [
             "chartbook.toml",
             OUTPUT_DIR / "summary_cip.ipynb",
+            OUTPUT_DIR / "cip_deviations.html",
         ],
         "targets": [BASE_DIR / "docs" / "index.html"],
         "verbosity": 2,
-        "task_dep": ["run_notebooks"],
+        "task_dep": ["run_notebooks", "generate_charts"],
     }

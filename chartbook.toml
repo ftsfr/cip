@@ -29,6 +29,28 @@ is_publishable = true
 
 [charts]
 
+[charts.cip_deviations]
+chart_name = "CIP Deviations"
+short_description_chart = "Interactive time series of CIP deviations across currencies"
+dataframe_id = "ftsfr_cip_spreads"
+path_to_html_chart = "./_output/cip_deviations.html"
+path_to_excel_chart = ""
+topic_tags = ["CIP", "foreign exchange", "arbitrage", "currency"]
+past_publications = []
+chart_docs_str = """
+## CIP Deviations Chart
+
+Interactive time series showing Covered Interest Parity deviations for 8 currencies against USD.
+
+### Interpretation
+- **CIP = 0**: No arbitrage opportunity (parity holds)
+- **CIP > 0**: Borrowing USD is relatively cheaper
+- **CIP < 0**: Borrowing foreign currency is relatively cheaper
+
+### Currencies
+AUD, CAD, CHF, EUR, GBP, JPY, NZD, SEK
+"""
+
 [dataframes]
 
 [dataframes.ftsfr_cip_spreads]
