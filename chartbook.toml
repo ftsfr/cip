@@ -1,77 +1,55 @@
-[config]
-type = "pipeline"
-chartbook_format_version = "0.0.2"
-
-[site]
-title = "CIP Deviations"
-author = "Jeremy Bejarano"
+[project]
+name = "Covered Interest Parity Deviations"
+description = "CIP deviations measuring arbitrage opportunities in currency markets"
+contributors = [
+    "Jeremy Bejarano",
+    "Kunj Mehta",
+]
+repo_url = "https://github.com/ftsfr/cip"
 copyright = "2025"
-logo_path = ""
-favicon_path = ""
-
-[pipeline]
-id = "cip"
-pipeline_name = "Covered Interest Parity Deviations"
-pipeline_description = "CIP deviations measuring arbitrage opportunities in currency markets"
-lead_pipeline_developer = "Jeremy Bejarano"
-contributors = ["Jeremy Bejarano", "Kunj Mehta"]
-runs_on = "Windows/Linux/MacOS (requires Bloomberg)"
-git_repo_URL = "https://github.com/ftsfr/cip"
-README_file_path = "./README.md"
-
-[notebooks]
+os_compatibility = [
+    "Windows/Linux/MacOS (requires Bloomberg)",
+]
 
 [notebooks.summary_cip]
-notebook_name = "summary_cip"
-notebook_description = "Summary statistics and visualization of CIP deviations"
-notebook_path = "_output/summary_cip.ipynb"
-is_publishable = true
-
-[charts]
-
-[charts.cip_deviations]
-chart_name = "CIP Deviations"
-short_description_chart = "Interactive time series of CIP deviations across currencies"
-dataframe_id = "ftsfr_cip_spreads"
-path_to_html_chart = "./_output/cip_deviations.html"
-path_to_excel_chart = ""
-topic_tags = ["CIP", "foreign exchange", "arbitrage", "currency"]
-past_publications = []
-chart_docs_str = """
-## CIP Deviations Chart
-
-Interactive time series showing Covered Interest Parity deviations for 8 currencies against USD.
-
-### Interpretation
-- **CIP = 0**: No arbitrage opportunity (parity holds)
-- **CIP > 0**: Borrowing USD is relatively cheaper
-- **CIP < 0**: Borrowing foreign currency is relatively cheaper
-
-### Currencies
-AUD, CAD, CHF, EUR, GBP, JPY, NZD, SEK
-"""
-
-[dataframes]
+name = "summary_cip"
+description = "Summary statistics and visualization of CIP deviations"
+path = "_output/summary_cip.ipynb"
+publishable = true
 
 [dataframes.ftsfr_cip_spreads]
-dataframe_name = "ftsfr_cip_spreads"
-short_description_df = "Daily CIP deviations for 8 currencies vs USD"
-data_sources = ["Bloomberg FX"]
-data_providers = ["Bloomberg"]
-need_to_contact_provider = ["no"]
-data_on_pre_approved_list = ["No"]
-links_to_data_providers = ["https://bloomberg.com"]
-topic_tags = ["CIP", "foreign exchange", "arbitrage", "currency"]
-type_of_data_access = ["Bloomberg Terminal"]
-data_license = "Bloomberg"
-license_expiration_date = ""
-provider_contact_info = ""
-restriction_on_use = "No"
-how_is_pulled = "Pulled from Bloomberg via xbbg"
-path_to_parquet_data = "./_data/ftsfr_cip_spreads.parquet"
-path_to_excel_data = ""
+name = "ftsfr_cip_spreads"
+description = "Daily CIP deviations for 8 currencies vs USD"
+sources = [
+    "Bloomberg FX",
+]
+providers = [
+    "Bloomberg",
+]
+contact_required = [
+    "no",
+]
+pre_approved = [
+    "No",
+]
+provider_links = [
+    "https://bloomberg.com",
+]
+tags = [
+    "CIP",
+    "foreign exchange",
+    "arbitrage",
+    "currency",
+]
+access_types = [
+    "Bloomberg Terminal",
+]
+license = "Bloomberg"
+restrictions = "No"
+pull_method = "Pulled from Bloomberg via xbbg"
+path = "./_data/ftsfr_cip_spreads.parquet"
 date_col = "ds"
-dataframe_docs_str = """
+docs = """
 ## CIP Deviations
 
 Covered Interest Parity deviations in basis points.
@@ -109,4 +87,29 @@ AUD, CAD, CHF, EUR, GBP, JPY, NZD, SEK
 ### Data Source
 
 Bloomberg FX spot rates, forward points, and OIS interest rates
+"""
+
+[charts.cip_deviations]
+name = "CIP Deviations"
+description = "Interactive time series of CIP deviations across currencies"
+dataframe = "ftsfr_cip_spreads"
+path = "./_output/cip_deviations.html"
+tags = [
+    "CIP",
+    "foreign exchange",
+    "arbitrage",
+    "currency",
+]
+docs = """
+## CIP Deviations Chart
+
+Interactive time series showing Covered Interest Parity deviations for 8 currencies against USD.
+
+### Interpretation
+- **CIP = 0**: No arbitrage opportunity (parity holds)
+- **CIP > 0**: Borrowing USD is relatively cheaper
+- **CIP < 0**: Borrowing foreign currency is relatively cheaper
+
+### Currencies
+AUD, CAD, CHF, EUR, GBP, JPY, NZD, SEK
 """
